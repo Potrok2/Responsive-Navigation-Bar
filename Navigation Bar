@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 14px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-links {
+            display: flex;
+        }
+
+        /* Mobile view */
+        @media screen and (max-width: 768px) {
+            .menu-links {
+                display: none;
+                flex-direction: column;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#">Logo</a>
+        <div class="menu-links" id="menuLinks">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
+    </nav>
+
+    <script>
+        const menuIcon = document.getElementById("menuIcon");
+        const menuLinks = document.getElementById("menuLinks");
+
+        menuIcon.onclick = function() {
+            if (menuLinks.style.display === "flex") {
+                menuLinks.style.display = "none";
+            } else {
+                menuLinks.style.display = "flex";
+            }
+        }
+    </script>
+</body>
+</html>
